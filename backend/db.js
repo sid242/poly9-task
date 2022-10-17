@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+const dontenv = require('dotenv')
+dontenv.config({ path: './.env' });
 
-const mongoURI = "mongodb://localhost:27017/ploy9?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false"
+const mongoURI = process.env.MONGO_URI
 
 const connectToMongo = () => {
     mongoose.connect(mongoURI, () => {
